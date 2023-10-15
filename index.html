@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clima</title>
-    <link rel="styesheet" href="assets/css/style.css" /> 
+    <link rel="stylesheet" href="assets/css/style.css" > 
     <script src="assets/js/script.js" defer></script> <!-- defer:carregar dps do html completo -->  
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,24 +18,26 @@
     <div class="container">
         <div class="form">
             <h3>Confira o clima de uma cidade:</h3>
-            <div class="form-input-container">
+            <div class="form_input_container">
                 <input type="text" placeholder="Informe o nome da cidade" id="city_input">
                 <button id="search">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
             </div>
-            <div id="weatcher_data">
+            <div id="weather_data">
                 <h2>
                     <i class="fa-solid fa-location-dot"></i>
                     <span id="city">Fortaleza</span>
-                    <img src="" alt="Bandeira do país" id="image_city"/>
+                    <img src="https://flagsapi.com/BR/flat/32.png"
+                     alt="Bandeira do país" id="image_city" />
                 </h2>
                 <p id="temperature"><spn>38</spn>&deg;C</p>
                 <div id="description_container">
                     <p id="description">Nublado</p>
-                    <img src="" alt="Condições do tempo" id="weather_icon"/>
+                    <img src="http://openweathermap.org/img/wn/01d.png"
+                     alt="Condições do tempo" id="weather_icon"/>
                 </div>
-                <div id="detaills_container">
+                <div id="details_container">
                     <p id="umidity">
                         <i class="fa-solid fa-droplet"></i>
                         <span>40%</span>
