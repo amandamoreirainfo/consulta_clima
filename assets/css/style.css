@@ -26,10 +26,11 @@ body {
 .container{
 
     background-color: #5c54ed;
-    box-shadow: rgba(0,0,0, .24) 0px 3px 8px;
+    box-shadow: white 2px 1px 1px;
     padding: 2rem;
     color: #fdfdfd;
     border-radius: 1rem;
+  
 
 }
 
@@ -115,11 +116,13 @@ weather_data h2 i{
     
 }
 
-#details_container #umidity{
+#details_container #humidity{
 
     border-right: 1px solid #fff;
     margin: 0.6rem;
     padding: 0.6rem;
 
 }
+
+
 
