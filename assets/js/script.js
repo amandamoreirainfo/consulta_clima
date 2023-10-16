@@ -1,4 +1,3 @@
-// chave da api: b7bf59b5599802789e9ab9aa90d143f0
 const apiKey = "b7bf59b5599802789e9ab9aa90d143f0";
 const apiCountryURL = "https://flagsapi.com/";
 
