@@ -15,6 +15,8 @@ const windElement = document.querySelector("#wind span");
 
 const weatherContainer = document.querySelector("#weather_data");
 
+const errorElement = document.querySelector("#error");
+
 const getWeatherData = async(city) => {
 
     const apiWeatherURL =  ` https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}&lang=pt_br `;
@@ -30,24 +32,41 @@ const getWeatherData = async(city) => {
 
 const showWeatherData = async (city) => {
 
+    try{
 
-    const data = await getWeatherData(city);
+        const data = await getWeatherData(city);
 
-    
-    cityElement.innerText = data.name;
-    tempElement.innerText = parseInt(data.main.temp);
-    descElement.innerText = data.weather[0].description;
-    weatherIconElement.setAttribute(
-    "src", 
-     ` http://openweathermap.org/img/wn/${data.weather[0].icon}.png `
-    );
-    countryElement.setAttribute("src", apiCountryURL + data.sys.country +"/flat/32.png");
+        if(data.cod === 200){
 
-    humidityElement.innerText =  `${data.main.humidity}%`;
-    windElement.innerText = `${data.wind.speed}km/h`;
-    
-    weatherContainer.classList.remove("hide");
-   
+            cityElement.innerText = data.name;
+            tempElement.innerText = parseInt(data.main.temp);
+            descElement.innerText = data.weather[0].description;
+            weatherIconElement.setAttribute(
+            "src", 
+            ` http://openweathermap.org/img/wn/${data.weather[0].icon}.png `
+            );
+            countryElement.setAttribute("src", apiCountryURL + data.sys.country +"/flat/32.png");
+
+            humidityElement.innerText =  `${data.main.humidity}%`;
+            windElement.innerText = `${data.wind.speed}km/h`;
+            
+            weatherContainer.classList.remove("hide");
+            errorElement.style.display = "none";
+
+        }else{
+
+            errorElement.innerText = "Cidade não encontrada. Por favor verifique o nome da cidade.";
+            errorElement.style.display = "block";
+            weatherContainer.classList.add("hide"); 
+
+        }
+    }catch (error){
+
+        errorElement.innerText = "Ocorreu um erro ao buscar os dados do clima. Tente novamente mais tarde.";
+        errorElement.style.display = "block";
+        weatherContainer.classList.add("hide");
+
+    }
 
 };
 
